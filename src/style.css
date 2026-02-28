@@ -1,5 +1,23 @@
 :root {
+  /* Цвета фона */
+  --bg-color-primary: #2F3E46;
 
+  /* Цвета текста */
+  --text-color-primary: #FFFFFF;
+  --text-color-secondary: #AAB2B9;
+
+
+  /* Радиусы и отступы */
+  --border-radius-small: 8px;
+  --border-radius-medium: 12px;
+  --border-radius-large: 16px;
+  --spacing-unit: 16px;
+  --gap: 24px;
+
+  /* Типографика */
+  --font-family: Alegreya, serif;
+  --font-family-sans: "Alegreya Sans", sans-serif;
+  --font-size-base: 14px;
 }
 
 body {
