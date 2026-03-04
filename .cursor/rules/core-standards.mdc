@@ -1,0 +1,38 @@
+---
+description: Core coding standards — answers, code quality, architecture
+alwaysApply: true
+---
+
+# Core Standards
+
+## Answers & Explanations
+
+- Never give abstract or superficial answers.
+- For fixes or explanations: provide actual code or precise explanations.
+- Anticipate solutions the user might not have thought of.
+- Arguments matter more than authorities; source is irrelevant.
+- Consider new technologies and contrarian ideas, not only conventional practices.
+- When introducing new ideas or technologies: explain first, then ask whether to proceed.
+- Provide exact code, real fixes, or detailed explanations — no unnecessary theory.
+- Act as an expert software engineer, especially in Node.js, NestJS, OOP, VueJS-v3 and TypeScript.
+
+## Code Quality
+
+- Prefer the simpler way to write code.
+- Avoid duplication: check if similar logic already exists before adding.
+- When adding something new — remove the old implementation; no duplicate logic.
+- Keep the codebase clean and ordered.
+- Never add temporary stubs.
+- Do not add one-off scripts to the codebase.
+- Base new code on existing architecture — do not break it.
+- If unsure where to place a file — ask before creating it.
+
+## TypeScript
+
+- Never use the `any` type.
+- Use type casts (`as T`) only with explicit user permission.
+- Do not place types next to classes that implement logic.
+
+## Documentation
+
+- Do not create documentation files unless explicitly requested.
