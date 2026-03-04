@@ -1,17 +1,9 @@
 <script setup lang="ts">
-import LotusIcon from './icons/LotusIcon.vue'
-import AnxiousIcon from './icons/AnxiousIcon.vue'
-import RelaxIcon from './icons/RelaxIcon.vue'
-import InJanIcon from './icons/InJanIcon.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div style="">
-    <LotusIcon />
-    <AnxiousIcon />
-    <RelaxIcon />
-    <InJanIcon />
-  </div>
+  <RouterView />
 </template>
 
 <style scoped>
