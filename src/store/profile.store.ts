@@ -11,10 +11,10 @@ export const useProfileStore = defineStore('profile', () => {
   const selectedMood = ref<MoodType | null>(null)
 
   const moodOptions: { id: MoodType; label: string; icon: string }[] = [
-    { id: 'calm', label: 'Спокойно', icon: 'anxious' },
+    { id: 'calm', label: 'Спокойно', icon: 'injan' },
     { id: 'relaxed', label: 'Расслабленно', icon: 'relax' },
-    { id: 'focused', label: 'Сфокусировано', icon: 'budda' },
-    { id: 'anxious', label: 'Тревожно', icon: 'injan' }
+    { id: 'focused', label: 'Фокусировано', icon: 'budda' },
+    { id: 'anxious', label: 'Тревожно', icon: 'anxious' }
   ]
 
   function setMood(mood: MoodType) {

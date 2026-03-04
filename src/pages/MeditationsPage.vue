@@ -27,12 +27,11 @@ onMounted(() => {
 .meditations-page {
   min-height: 100vh;
   background-color: var(--bg-color-primary);
+  padding: 0 18px;
 }
 
 .content {
   display: flex;
   gap: var(--gap);
-  width: 96%;
-  margin: 0 auto;
 }
 </style>

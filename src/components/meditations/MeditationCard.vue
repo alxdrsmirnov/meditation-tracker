@@ -33,6 +33,11 @@ defineProps<{
   flex-direction: column;
   min-width: 300px;
   min-height: 160px;
+  transition: box-shadow 0.3s ease;
+}
+
+.meditation-card:hover {
+  box-shadow: 0 0px 20px 2px rgba(255, 255, 255, 0.24);
 }
 
 .title {
@@ -47,7 +52,7 @@ defineProps<{
 .description {
   color: #253334;
   font-family: var(--font-family-sans);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
   margin: 0;
   flex: 1;
@@ -87,6 +92,6 @@ defineProps<{
 .duration {
   color: #848484;
   font-family: var(--font-family-sans);
-  font-size: 16px;
+  font-size: 18px;
 }
 </style>

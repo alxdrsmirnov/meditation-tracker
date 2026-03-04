@@ -13,6 +13,7 @@ const profileStore = useProfileStore()
         :alt="profileStore.user.name"
         class="avatar"
       />
+
       <h1 class="greeting">Добро пожаловать, {{ profileStore.user.name }}!</h1>
       <p class="question">Как вы сегодня себя чувствуете?</p>
     </div>
@@ -32,11 +33,11 @@ const profileStore = useProfileStore()
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: var(--spacing-unit);
+  margin-bottom: calc(var(--spacing-unit) * 2);
   border: 4px solid #C4A265;
   padding: 4px;
   box-sizing: content-box;
@@ -45,15 +46,15 @@ const profileStore = useProfileStore()
 .greeting {
   color: var(--text-color-primary);
   font-family: var(--font-family);
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 600;
-  margin: 0 0 8px 0;
+  margin-bottom: -6px;
 }
 
 .question {
   color: var(--text-color-secondary);
   font-family: var(--font-family-sans);
-  font-size: 16px;
-  margin: 0;
+  font-size: 20px;
+  margin-bottom: 44px;
 }
 </style>

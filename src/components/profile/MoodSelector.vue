@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import type { Component } from 'vue'
 import { useProfileStore } from '../../store/profile.store'
 import AnxiousIcon from '../../icons/AnxiousIcon.vue'
 import RelaxIcon from '../../icons/RelaxIcon.vue'
@@ -8,15 +8,15 @@ import InJanIcon from '../../icons/InJanIcon.vue'
 
 const profileStore = useProfileStore()
 
-const moodIcons: Record<string, any> = {
-  calm: AnxiousIcon,
-  relaxed: RelaxIcon,
-  focused: BuddaIcon,
-  anxious: InJanIcon
+const moodIcons: Record<string, Component> = {
+  anxious: AnxiousIcon,
+  relax: RelaxIcon,
+  budda: BuddaIcon,
+  injan: InJanIcon
 }
 
 function getMoodIcon(iconName: string) {
-  return moodIcons[iconName] || AnxiousIcon
+  return moodIcons[iconName] ?? AnxiousIcon
 }
 </script>
 
@@ -30,7 +30,7 @@ function getMoodIcon(iconName: string) {
       <div class="mood-icon">
         <component
           :is="getMoodIcon(mood.icon)"
-          class="mood-svg"
+          :class="['mood-svg', { 'mood-svg--large': mood.icon === 'anxious' }]"
         />
       </div>
       <span class="mood-label">{{ mood.label }}</span>
@@ -59,7 +59,7 @@ function getMoodIcon(iconName: string) {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #253334;
+  background-color: #F5F5F0;
   border-radius: 12px;
   transition: background-color 0.2s ease;
 }
@@ -69,12 +69,22 @@ function getMoodIcon(iconName: string) {
   height: 44px;
 }
 
-.mood-svg :deep(path) {
-  fill: #FFFFFF !important;
+.mood-svg--large {
+  width: 66px;
+  height: 66px;
+}
+
+.mood-svg :deep(path:not([data-icon-type="stroke"])) {
+  fill: #253334 !important;
+}
+
+.mood-svg :deep(path[data-icon-type="stroke"]) {
+  fill: none !important;
+  stroke: #253334 !important;
 }
 
 .mood-option:hover .mood-icon {
-  background-color: #2d3d40;
+  background-color: #e8e8e0;
 }
 
 .mood-label {
