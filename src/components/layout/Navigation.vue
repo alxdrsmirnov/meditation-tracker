@@ -13,7 +13,7 @@ import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
     
     <div class="separator"></div>
     
-    <router-link to="/stats" class="nav-item" active-class="active">
+    <router-link to="/stats" class="nav-item">
       <StatsIcon />
       <span>Статистика</span>
     </router-link>
@@ -31,18 +31,19 @@ import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
 .navigation {
   display: flex;
   align-items: center;
-  gap: var(--spacing-unit);
+  gap: 40px;
 }
 
 .nav-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   padding: 8px 16px;
   color: var(--text-color-secondary);
   text-decoration: none;
-  font-family: var(--font-family-sans);
-  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: 20px;
   transition: color 0.2s ease;
   cursor: pointer;
 }
@@ -55,9 +56,19 @@ import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
   color: var(--text-color-primary);
 }
 
+.nav-item :deep(svg) {
+  width: 28px;
+  height: 28px;
+  opacity: 0.7;
+}
+
+.nav-item.active :deep(svg) {
+  opacity: 1;
+}
+
 .separator {
   width: 1px;
-  height: 24px;
-  background-color: rgba(255, 255, 255, 0.2);
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 </style>

@@ -27,10 +27,12 @@ function getMoodIcon(iconName: string) {
       :key="mood.id"
       class="mood-option"
     >
-      <component
-        :is="getMoodIcon(mood.icon)"
-        class="mood-icon"
-      />
+      <div class="mood-icon">
+        <component
+          :is="getMoodIcon(mood.icon)"
+          class="mood-svg"
+        />
+      </div>
       <span class="mood-label">{{ mood.label }}</span>
     </div>
   </div>
@@ -39,7 +41,7 @@ function getMoodIcon(iconName: string) {
 <style scoped>
 .mood-selector {
   display: flex;
-  gap: var(--spacing-unit);
+  gap: 20px;
   margin-top: var(--spacing-unit);
 }
 
@@ -52,22 +54,33 @@ function getMoodIcon(iconName: string) {
 }
 
 .mood-icon {
-  width: 48px;
-  height: 48px;
-  padding: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: var(--border-radius-medium);
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #253334;
+  border-radius: 12px;
   transition: background-color 0.2s ease;
 }
 
+.mood-svg {
+  width: 44px;
+  height: 44px;
+}
+
+.mood-svg :deep(path) {
+  fill: #FFFFFF !important;
+}
+
 .mood-option:hover .mood-icon {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #2d3d40;
 }
 
 .mood-label {
   color: var(--text-color-secondary);
   font-family: var(--font-family-sans);
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
 }
 </style>

@@ -5,7 +5,8 @@ import Navigation from './Navigation.vue'
 
 <template>
   <header class="header">
-    <LotusIcon class="logo" />
+    <LotusIcon class="logo" :width="100" />
+
     <Navigation />
   </header>
 </template>
@@ -15,12 +16,13 @@ import Navigation from './Navigation.vue'
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+  padding: 24px 48px;
   background-color: var(--bg-color-primary);
 }
 
 .logo {
-  width: 48px;
-  height: 48px;
+  width: 80px;
+  height: 80px;
 }
+
 </style>

@@ -32,5 +32,7 @@ onMounted(() => {
 .content {
   display: flex;
   gap: var(--gap);
+  width: 96%;
+  margin: 0 auto;
 }
 </style>

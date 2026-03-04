@@ -23,7 +23,7 @@ const profileStore = useProfileStore()
 
 <style scoped>
 .profile-sidebar {
-  padding: calc(var(--spacing-unit) * 2);
+  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
   min-width: 320px;
 }
 
@@ -37,6 +37,9 @@ const profileStore = useProfileStore()
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: var(--spacing-unit);
+  border: 4px solid #C4A265;
+  padding: 4px;
+  box-sizing: content-box;
 }
 
 .greeting {

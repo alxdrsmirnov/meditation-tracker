@@ -41,8 +41,9 @@ const error = computed(() => meditationStore.error)
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 600px));
   gap: var(--gap);
+  justify-content: end;
 }
 
 .loading,
@@ -58,11 +59,5 @@ const error = computed(() => meditationStore.error)
 
 .error {
   color: #ff6b6b;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 </style>
