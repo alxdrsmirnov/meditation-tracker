@@ -27,7 +27,7 @@ onMounted(() => {
 .meditations-page {
   min-height: 100vh;
   background-color: var(--bg-color-primary);
-  padding: 0 18px;
+  padding: 0 20px;
 }
 
 .content {

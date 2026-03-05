@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MeditationsPage from '../pages/MeditationsPage.vue'
+import MainPage from '../pages/MainPage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'meditations',
-    component: MeditationsPage
+    component: MainPage
   },
   {
     path: '/stats',

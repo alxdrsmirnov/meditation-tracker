@@ -48,13 +48,13 @@ const profileStore = useProfileStore()
   font-family: var(--font-family);
   font-size: 36px;
   font-weight: 600;
-  margin-bottom: -6px;
+  margin-bottom: -16px;
 }
 
 .question {
   color: var(--text-color-secondary);
   font-family: var(--font-family-sans);
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 44px;
 }
 </style>
