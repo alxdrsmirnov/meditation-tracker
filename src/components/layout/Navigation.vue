@@ -1,12 +1,22 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/auth.store'
 import PlayIcon from '../../icons/PlayIcon.vue'
 import StatsIcon from '../../icons/StatsIcon.vue'
 import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
 
+const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
+
+const isMeditationRoute = computed(() => {
+  return route.name === 'meditations' || route.name === 'active-meditation'
+})
+
+const isStatsRoute = computed(() => {
+  return route.name === 'stats'
+})
 
 const handleLogout = () => {
   authStore.logout()
@@ -16,14 +26,14 @@ const handleLogout = () => {
 
 <template>
   <nav class="navigation">
-    <router-link to="/" class="nav-item" active-class="active">
+    <router-link to="/" :class="['nav-item', { active: isMeditationRoute }]">
       <PlayIcon />
       <span>Медитация</span>
     </router-link>
     
     <div class="separator"></div>
     
-    <router-link to="/stats" class="nav-item">
+    <router-link to="/stats" :class="['nav-item', { active: isStatsRoute }]">
       <StatsIcon />
       <span>Статистика</span>
     </router-link>

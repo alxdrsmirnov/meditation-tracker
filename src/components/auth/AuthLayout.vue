@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import LotusIcon from '../../icons/LotusIcon.vue'
 
 interface Props {
@@ -16,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
     <div class="auth-background"></div>
     <div class="auth-content">
       <div v-if="props.showLogo" class="logo-container">
-        <LotusIcon class="logo-icon" />
+        <LotusIcon class="logo-icon" :width="100" />
       </div>
       <slot></slot>
     </div>

@@ -1,10 +1,22 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import PlayIcon from '../../icons/PlayIcon.vue'
 import type { Meditation } from '../../types/meditation'
 
-defineProps<{
+const props = defineProps<{
   meditation: Meditation
 }>()
+
+const router = useRouter()
+
+function handleStart() {
+  router.push({
+    name: 'active-meditation',
+    params: {
+      id: props.meditation.id
+    }
+  })
+}
 </script>
 
 <template>
@@ -13,7 +25,7 @@ defineProps<{
     <p class="description">{{ meditation.description }}</p>
 
     <div class="footer">
-      <button class="start-button">
+      <button class="start-button" type="button" @click="handleStart">
         <span>Начать</span>
         <PlayIcon />
       </button>

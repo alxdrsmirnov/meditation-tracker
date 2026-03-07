@@ -79,7 +79,8 @@ async function handleMoodClick(moodId: typeof profileStore.moodOptions[number]['
   height: 40px;
 }
 
-.mood-svg :deep(path:not([data-icon-type="stroke"])) {
+.mood-svg :deep(path:not([data-icon-type="stroke"])),
+.mood-svg :deep(circle:not([data-icon-type="stroke"])) {
   fill: #253334 !important;
 }
 
@@ -96,7 +97,8 @@ async function handleMoodClick(moodId: typeof profileStore.moodOptions[number]['
   background-color: #C4A265;
 }
 
-.mood-option.selected .mood-svg :deep(path:not([data-icon-type="stroke"])) {
+.mood-option.selected .mood-svg :deep(path:not([data-icon-type="stroke"])),
+.mood-option.selected .mood-svg :deep(circle:not([data-icon-type="stroke"])) {
   fill: #FFFFFF !important;
 }
 

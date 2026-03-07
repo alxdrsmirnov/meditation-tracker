@@ -13,6 +13,12 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: '/meditations/:id',
+    name: 'active-meditation',
+    component: () => import('../pages/ActiveMeditationPage.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
     path: '/welcome',
     name: 'welcome',
     component: WelcomePage,
@@ -43,7 +49,7 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const authStore = useAuthStore()
   const isAuthenticated = authStore.isAuthenticated
 
