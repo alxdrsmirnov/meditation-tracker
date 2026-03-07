@@ -24,37 +24,34 @@ const profileStore = useProfileStore()
 
 <style scoped>
 .profile-sidebar {
-  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
-  min-width: 320px;
+  padding: 32px 32px 32px 48px;
+  min-width: 280px;
 }
 
 .profile-header {
-  margin-bottom: var(--spacing-unit);
+  margin-bottom: 16px;
 }
 
 .avatar {
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: calc(var(--spacing-unit) * 2);
-  border: 4px solid #C4A265;
-  padding: 4px;
-  box-sizing: content-box;
+  margin-bottom: 24px;
 }
 
 .greeting {
   color: var(--text-color-primary);
   font-family: var(--font-family);
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 600;
-  margin-bottom: -16px;
+  margin-bottom: -12px;
 }
 
 .question {
   color: var(--text-color-secondary);
   font-family: var(--font-family-sans);
-  font-size: 24px;
-  margin-bottom: 44px;
+  font-size: 18px;
+  margin-bottom: 32px;
 }
 </style>

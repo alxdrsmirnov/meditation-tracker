@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useMeditationStore } from '../store/meditation.store'
+import { useProfileStore } from '../store/profile.store'
 import Header from '../components/layout/Header.vue'
 import ProfileSidebar from '../components/profile/ProfileSidebar.vue'
 import MeditationsGrid from '../components/meditations/MeditationsGrid.vue'
 
 const meditationStore = useMeditationStore()
+const profileStore = useProfileStore()
 
 onMounted(() => {
   meditationStore.fetchMeditations()
+  profileStore.fetchProfile()
 })
 </script>
 
@@ -27,11 +30,11 @@ onMounted(() => {
 .meditations-page {
   min-height: 100vh;
   background-color: var(--bg-color-primary);
-  padding: 0 20px;
 }
 
 .content {
   display: flex;
-  gap: var(--gap);
+  gap: 16px;
+  padding: 0 20px 20px 20px;
 }
 </style>

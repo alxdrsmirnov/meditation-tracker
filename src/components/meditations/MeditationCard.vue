@@ -1,10 +1,22 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import PlayIcon from '../../icons/PlayIcon.vue'
 import type { Meditation } from '../../types/meditation'
 
-defineProps<{
+const props = defineProps<{
   meditation: Meditation
 }>()
+
+const router = useRouter()
+
+function handleStart() {
+  router.push({
+    name: 'active-meditation',
+    params: {
+      id: props.meditation.id
+    }
+  })
+}
 </script>
 
 <template>
@@ -13,7 +25,7 @@ defineProps<{
     <p class="description">{{ meditation.description }}</p>
 
     <div class="footer">
-      <button class="start-button">
+      <button class="start-button" type="button" @click="handleStart">
         <span>Начать</span>
         <PlayIcon />
       </button>
@@ -28,33 +40,39 @@ defineProps<{
   background-color: #F5F5F0;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--border-radius-large);
-  padding: calc(var(--spacing-unit) * 2);
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  min-width: 300px;
-  min-height: 160px;
+  gap: 16px;
+  min-width: 280px;
+  min-height: 140px;
   transition: box-shadow 0.3s ease;
 }
 
 .meditation-card:hover {
-  box-shadow: 0 0px 20px 2px rgba(255, 255, 255, 0.24);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .title {
   color: #1b2626;
   font-family: var(--font-family);
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   margin: 0;
-  margin-bottom: 4px;
+  line-height: 1.3;
 }
 
 .description {
   color: #253334;
   font-family: var(--font-family-sans);
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.4;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex: 1;
 }
 
@@ -62,20 +80,22 @@ defineProps<{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
 }
 
 .start-button {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
+  padding: 10px 18px;
   background-color: #253334;
   color: #FFFFFF;
   border: none;
   border-radius: var(--border-radius-medium);
   cursor: pointer;
   font-family: var(--font-family-sans);
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 600;
   transition: background-color 0.2s ease;
 }
 
@@ -84,14 +104,15 @@ defineProps<{
 }
 
 .start-button :deep(svg) {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   stroke: #FFFFFF;
 }
 
 .duration {
   color: #848484;
   font-family: var(--font-family-sans);
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 500;
 }
 </style>

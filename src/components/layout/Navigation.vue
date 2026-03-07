@@ -1,29 +1,49 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useAuthStore } from '../../store/auth.store'
 import PlayIcon from '../../icons/PlayIcon.vue'
 import StatsIcon from '../../icons/StatsIcon.vue'
 import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
+
+const route = useRoute()
+const router = useRouter()
+const authStore = useAuthStore()
+
+const isMeditationRoute = computed(() => {
+  return route.name === 'meditations' || route.name === 'active-meditation'
+})
+
+const isStatsRoute = computed(() => {
+  return route.name === 'stats'
+})
+
+const handleLogout = () => {
+  authStore.logout()
+  router.push('/welcome')
+}
 </script>
 
 <template>
   <nav class="navigation">
-    <router-link to="/" class="nav-item" active-class="active">
+    <router-link to="/" :class="['nav-item', { active: isMeditationRoute }]">
       <PlayIcon />
       <span>Медитация</span>
     </router-link>
     
     <div class="separator"></div>
     
-    <router-link to="/stats" class="nav-item">
+    <router-link to="/stats" :class="['nav-item', { active: isStatsRoute }]">
       <StatsIcon />
       <span>Статистика</span>
     </router-link>
     
     <div class="separator"></div>
     
-    <a href="#" class="nav-item">
+    <button class="nav-item" @click="handleLogout">
       <DoorOpenIcon />
       <span>Выход</span>
-    </a>
+    </button>
   </nav>
 </template>
 
@@ -46,6 +66,8 @@ import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
   font-size: 20px;
   transition: color 0.2s ease;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .nav-item:hover {
