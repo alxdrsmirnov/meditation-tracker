@@ -1,7 +1,17 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '../../store/auth.store'
 import PlayIcon from '../../icons/PlayIcon.vue'
 import StatsIcon from '../../icons/StatsIcon.vue'
 import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+const handleLogout = () => {
+  authStore.logout()
+  router.push('/welcome')
+}
 </script>
 
 <template>
@@ -20,10 +30,10 @@ import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
     
     <div class="separator"></div>
     
-    <a href="#" class="nav-item">
+    <button class="nav-item" @click="handleLogout">
       <DoorOpenIcon />
       <span>Выход</span>
-    </a>
+    </button>
   </nav>
 </template>
 
@@ -46,6 +56,8 @@ import DoorOpenIcon from '../../icons/DoorOpenIcon.vue'
   font-size: 20px;
   transition: color 0.2s ease;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .nav-item:hover {
