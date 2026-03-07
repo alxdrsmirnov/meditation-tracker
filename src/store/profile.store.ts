@@ -55,8 +55,44 @@ export const useProfileStore = defineStore('profile', () => {
     }
   }
 
-  function setMood(mood: MoodType) {
-    selectedMood.value = mood
+  const moodTypeMap: Record<MoodType, string> = {
+    calm: 'feeling_calm',
+    relaxed: 'feeling_relax',
+    focused: 'feeling_focus',
+    anxious: 'feeling_anxiety'
+  }
+
+  async function sendMoodStat(mood: MoodType): Promise<boolean> {
+    const token = authStore.getToken()
+    if (!token) {
+      return false
+    }
+
+    try {
+      const response = await fetch('http://localhost:3000/api/stats', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          type: moodTypeMap[mood],
+          value: 1
+        })
+      })
+
+      return response.ok
+    } catch (e) {
+      console.error('Failed to send mood stat:', e)
+      return false
+    }
+  }
+
+  async function setMood(mood: MoodType) {
+    const success = await sendMoodStat(mood)
+    if (success) {
+      selectedMood.value = mood
+    }
   }
 
   return {

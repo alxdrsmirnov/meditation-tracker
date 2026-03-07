@@ -18,6 +18,10 @@ const moodIcons: Record<string, Component> = {
 function getMoodIcon(iconName: string) {
   return moodIcons[iconName] ?? AnxiousIcon
 }
+
+async function handleMoodClick(moodId: typeof profileStore.moodOptions[number]['id']) {
+  await profileStore.setMood(moodId)
+}
 </script>
 
 <template>
@@ -26,7 +30,7 @@ function getMoodIcon(iconName: string) {
       v-for="mood in profileStore.moodOptions"
       :key="mood.id"
       :class="['mood-option', { selected: profileStore.selectedMood === mood.id }]"
-      @click="profileStore.setMood(mood.id)"
+      @click="handleMoodClick(mood.id)"
     >
       <div class="mood-icon">
         <component
