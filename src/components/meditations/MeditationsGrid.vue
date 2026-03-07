@@ -36,13 +36,13 @@ const error = computed(() => meditationStore.error)
 <style scoped>
 .meditations-grid {
   flex: 1;
-  padding: calc(var(--spacing-unit) * 2);
+  padding: 32px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 600px));
-  gap: var(--gap);
+  grid-template-columns: repeat(2, minmax(0, 450px));
+  gap: 24px;
   justify-content: end;
 }
 

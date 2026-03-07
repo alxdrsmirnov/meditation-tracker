@@ -25,7 +25,8 @@ function getMoodIcon(iconName: string) {
     <div
       v-for="mood in profileStore.moodOptions"
       :key="mood.id"
-      class="mood-option"
+      :class="['mood-option', { selected: profileStore.selectedMood === mood.id }]"
+      @click="profileStore.setMood(mood.id)"
     >
       <div class="mood-icon">
         <component
@@ -41,8 +42,8 @@ function getMoodIcon(iconName: string) {
 <style scoped>
 .mood-selector {
   display: flex;
-  gap: 20px;
-  margin-top: var(--spacing-unit);
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .mood-option {
@@ -54,8 +55,8 @@ function getMoodIcon(iconName: string) {
 }
 
 .mood-icon {
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,13 +66,13 @@ function getMoodIcon(iconName: string) {
 }
 
 .mood-svg {
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
 }
 
 .mood-svg--large {
-  width: 66px;
-  height: 66px;
+  width: 40px;
+  height: 40px;
 }
 
 .mood-svg :deep(path:not([data-icon-type="stroke"])) {
@@ -87,10 +88,23 @@ function getMoodIcon(iconName: string) {
   background-color: #e8e8e0;
 }
 
+.mood-option.selected .mood-icon {
+  background-color: #C4A265;
+}
+
+.mood-option.selected .mood-svg :deep(path:not([data-icon-type="stroke"])) {
+  fill: #FFFFFF !important;
+}
+
+.mood-option.selected .mood-svg :deep(path[data-icon-type="stroke"]) {
+  stroke: #FFFFFF !important;
+}
+
 .mood-label {
   color: var(--text-color-secondary);
   font-family: var(--font-family-sans);
-  font-size: 13px;
+  font-size: 12px;
   text-align: center;
+  font-weight: 500;
 }
 </style>

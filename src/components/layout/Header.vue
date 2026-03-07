@@ -14,15 +14,15 @@ import Navigation from './Navigation.vue'
 <style scoped>
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 24px 48px;
+  justify-content: space-between;
+  padding: 20px 40px;
   background-color: var(--bg-color-primary);
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+  margin-right: 40px;
 }
-
 </style>
